@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Movie() {
+function Utils() {
   return (
     <div>
-      Movie
+      Utils
     </div>
   );
 }
 
-export default Movie;
+export default Utils;

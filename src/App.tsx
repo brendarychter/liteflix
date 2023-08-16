@@ -1,14 +1,14 @@
 import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
-import Movie from './pages/Movie';
+import AddMovie from './pages/AddMovie';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-movie" element={<Movie />} />
+        <Route path="/add-movie" element={<AddMovie />} />
       </Routes>
     </>
   );
