@@ -1,0 +1,14 @@
+.logo {
+  color: $highlight-color;
+  cursor: default;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+
+  .text-wrapper {
+    font-weight: 700;
+  }
+}

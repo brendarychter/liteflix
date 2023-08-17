@@ -1,5 +1,5 @@
-import { Movie, RawMovie } from '@utils/types';
-import { BASE_PATH, API_KEY } from '../utils/config';
+import { Movie, RawMovie } from '../utils/types';
+import { BASE_PATH, API_KEY, IMAGE_PATH } from '../utils/config';
 
 // Finds the movie which has the maximum average
 const getMovie = (movies: Movie[]) => {
@@ -16,14 +16,14 @@ const transformData = (movies: RawMovie[]) => {
       title,
       vote_average: average,
       release_date,
-      backdrop_path: imagePath
+      backdrop_path
     } = rawMovie;
     return {
       id,
       title,
       average,
       releaseYear: new Date(release_date).getFullYear().toString(),
-      imagePath
+      imagePath: `${IMAGE_PATH}/${backdrop_path}`
     };
   });
 };

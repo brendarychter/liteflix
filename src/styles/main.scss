@@ -1,0 +1,24 @@
+// Common
+@import '_variables';
+@import '_mixins';
+
+// Atoms
+@import 'components/logo.scss';
+
+// Components
+@import 'components/header';
+
+// Pages
+@import 'pages/home';
+
+#root {
+  margin: 0 auto;
+  font: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: $background-color;
+  font-family: 'Bebas Neue', 'Helvetica';
+  color: #fff;
+}

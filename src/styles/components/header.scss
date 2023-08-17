@@ -1,0 +1,34 @@
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 3% 6% 0;
+
+  .icon {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+  .avatar {
+    border-radius: 50%;
+  }
+
+  .mobile-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .desktop-header {
+    @include mobile {
+      display: none;
+    }
+  }
+}

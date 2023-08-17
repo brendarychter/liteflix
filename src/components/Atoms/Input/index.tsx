@@ -1,11 +1,7 @@
-import React from 'react';
-
-function Input() {
+export default function Input() {
   return (
     <div>
       Input
     </div>
   );
 }
-
-export default Input;

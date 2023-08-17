@@ -26,7 +26,8 @@
       "@utils": ["utils/*"],
       "@icons/*": ["icons/*"],
       "@api/*": ["api/*"]
-    }
+    },
+    "types": ["vite-plugin-svgr/client"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
