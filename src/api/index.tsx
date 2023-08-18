@@ -45,7 +45,7 @@ export const getPopularMovies = async (): Promise<Movie[]> => {
 const getApiData = async (path: string) => {
   const URL = `${BASE_PATH}/${path}/?api_key=${API_KEY}`;
   try {
-    const response = await fetch(URL, { mode: 'cors' });
+    const response = await fetch(URL);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
