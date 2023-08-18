@@ -31,8 +31,8 @@ const transformData = (movies: RawMovie[]) => {
 // Function that returns the featured movie after the movie list is transformed
 export const getFeaturedMovie = async (): Promise<Movie> => {
   const PATH = 'now_playing';
-  const movies = await getApiData(PATH)
-  return await getMovie(movies)
+  const movies = await getApiData(PATH);
+  return await getMovie(movies);
 };
 
 // Function that returns the first 4 movies from the list after the movie list is transformed
@@ -45,7 +45,12 @@ export const getPopularMovies = async (): Promise<Movie[]> => {
 const getApiData = async (path: string) => {
   const URL = `${BASE_PATH}/${path}/?api_key=${API_KEY}`;
   try {
-    const response = await fetch(URL);
+    const response = await fetch(URL, {
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
