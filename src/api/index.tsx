@@ -1,5 +1,5 @@
-import { Movie, RawMovie } from '../utils/types';
-import { BASE_PATH, API_KEY, IMAGE_PATH } from '../utils/config';
+import { Movie, RawMovie } from '@/utils/types';
+import { BASE_PATH, API_KEY, IMAGE_PATH } from '@/utils/config';
 
 // Finds the movie which has the maximum average
 const getMovie = (movies: Movie[]) => {

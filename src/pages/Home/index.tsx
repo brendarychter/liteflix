@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { getFeaturedMovie, getPopularMovies } from '../../api';
-import { Movie } from '../../utils/types';
-import Spinner from '../../components/Atoms/Loader/';
-import Header from '../../components/Core/Header';
+import { getFeaturedMovie, getPopularMovies } from '@/api';
+import { Movie } from '@/utils/types';
+import { Loader } from '@/components/Atoms';
+import Header from '@/components/Core/Header';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Loader />
       ) : (
         <div
           className="home"

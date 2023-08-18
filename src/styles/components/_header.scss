@@ -1,0 +1,59 @@
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 4% 0;
+  animation: fadeInDown 1s;
+
+  .mobile-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .desktop-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+    }
+
+    .app-actions {
+      justify-content: left;
+      button {
+        margin-left: 10%;
+      }
+    }
+
+    .user-actions {
+      justify-content: right;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  i {
+    width: 10%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  .avatar {
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,10 @@
+export { ReactComponent as Arrow } from './arrow.svg';
+export { ReactComponent as Avatar } from './avatar.svg';
+export { ReactComponent as Check } from './check.svg';
+export { ReactComponent as Close } from './close.svg';
+export { ReactComponent as File } from './file.svg';
+export { ReactComponent as Menu } from './menu.svg';
+export { ReactComponent as Notification } from './notification.svg';
+export { ReactComponent as Play } from './play.svg';
+export { ReactComponent as Plus } from './plus.svg';
+export { ReactComponent as Star } from './star.svg';

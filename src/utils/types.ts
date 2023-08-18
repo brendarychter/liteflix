@@ -35,3 +35,10 @@ export interface RawMovie {
   overview: string;
   release_date: string;
 }
+
+export type ButtonType = {
+  text: string;
+  variant: string;
+  icon?: string;
+  action: Function;
+}

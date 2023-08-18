@@ -1,7 +1,18 @@
-const Button = ({ children: any, icon, ghost, action }) => {
-  const buttonClassName = `custom-button ${ghost ? 'ghost' : ''} ${icon ? 'with-icon' : ''}`;
+import { ButtonType } from '@/utils/types';
+import { Play, Plus  } from '@/icons';
 
-  return <button className={buttonClassName} onClick={()=>action}>{icon}{children}</button>;
+export const Button = ({
+  text,
+  icon,
+  variant,
+  action
+}: ButtonType): JSX.Element => {
+  return (
+    <button className={`custom-button ${variant}`} onClick={action()}>
+      {icon &&
+        <i>{icon === 'plus' ? <Plus/> : <Play/>}</i>
+      }
+      {text}
+    </button>
+  );
 };
-
-export default Button;
