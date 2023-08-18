@@ -2,16 +2,22 @@ import { Avatar, Notification, Menu } from '@/icons';
 import { Button, Logo } from '@/components/Atoms';
 
 export default function Header() {
+  const icons = [
+    { icon: <Menu />, className: 'icon' },
+    { icon: <Notification />, className: 'icon' },
+    { icon: <Avatar className="avatar" />, className: 'icon' }
+  ];
+
   return (
     <header>
       <div className="mobile-header">
-        <i>
-          <Menu className="icon menu" />
-        </i>
+        <span className="icon">
+          <Menu className="menu" />
+        </span>
         <Logo />
-        <i>
-          <Avatar className="icon avatar" />
-        </i>
+        <span className="icon">
+          <Avatar className="avatar" />
+        </span>
       </div>
 
       <div className="desktop-header">
@@ -25,15 +31,11 @@ export default function Header() {
           />
         </div>
         <div className="user-actions">
-          <i>
-            <Menu/>
-          </i>
-          <i>
-            <Notification/>
-          </i>
-          <i>
-            <Avatar className="avatar" />
-          </i>
+          {icons.map((item, index) => (
+            <span key={index} className={item.className}>
+              {item.icon}
+            </span>
+          ))}
         </div>
       </div>
     </header>

@@ -13,9 +13,10 @@ body,
 button,
 a {
   margin: 0;
-  font-family: 'Bebas Neue', 'Helvetica', 'sans-serif';
-  font-size: 18px;
   background-color: $bkg-color;
+  font-family: 'Bebas Neue', 'Helvetica', 'sans-serif';
+  font-size: 16px;
+  letter-spacing: 4px;
   color: $default-color;
 
   #root {

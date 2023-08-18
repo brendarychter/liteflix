@@ -1,5 +1,5 @@
 import { ButtonType } from '@/utils/types';
-import { Play, Plus  } from '@/icons';
+import { Play, Plus } from '@/icons';
 
 export const Button = ({
   text,
@@ -7,11 +7,11 @@ export const Button = ({
   variant,
   action
 }: ButtonType): JSX.Element => {
+  const handleClick = () => action();
   return (
-    <button className={`custom-button ${variant}`} onClick={action()}>
-      {icon &&
-        <i>{icon === 'plus' ? <Plus/> : <Play/>}</i>
-      }
+    <button className={`custom-button ${variant}`} onClick={handleClick}>
+      {/* TODO: icons by parameter */}
+      {icon && <span className="button-icon">{icon === 'plus' ? <Plus /> : <Play />}</span>}
       {text}
     </button>
   );

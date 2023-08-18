@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getFeaturedMovie, getPopularMovies } from '@/api';
 import { Movie } from '@/utils/types';
-import { Loader } from '@/components/Atoms';
+import { Button, Loader } from '@/components/Atoms';
 import Header from '@/components/Core/Header';
 
 export default function Home() {
@@ -35,16 +35,45 @@ export default function Home() {
       {loading ? (
         <Loader />
       ) : (
-        <div
-          className="home"
+        <main
           style={{
             backgroundImage: `url(${featuredMovie?.imagePath}`
           }}
         >
-          <Header/>
-          {/* popular movie list */}
-          {/* my movie list */}
-        </div>
+          <Header />
+          <aside className="container">
+            <section className="featured-movie">
+              <h2 className="title">{featuredMovie?.title}</h2>
+              <h3 className="subtitle">
+                <span className="text-wrapper">Original de </span>
+                <span className="span">Liteflix</span>
+              </h3>
+              <div className="keypad">
+                <div className="play">
+                  <Button
+                    text="Reproducir"
+                    icon="play"
+                    variant="primary"
+                    action={() => console.log('hola')}
+                  />
+                </div>
+                <div className="my-list">
+                  <Button
+                    text="Mi lista"
+                    icon="plus"
+                    variant="secondary"
+                    action={() => console.log('hola')}
+                  />
+                </div>
+              </div>
+            </section>
+
+            <div className="movie-list">
+              {/* Dropdown */}
+              {popularMovies?.map(({ id, title }) => <p key={id}>{title}</p>)}
+            </div>
+          </aside>
+        </main>
       )}
     </>
   );

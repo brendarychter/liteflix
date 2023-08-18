@@ -1,22 +1,20 @@
 .custom-button {
-  height: 10vh;
-  width: 75%;
+  display: flex;
+  height: 7vh;
+  width: 100%;
   cursor: pointer;
   color: $default-color;
   letter-spacing: 4px;
   line-height: normal;
-  text-align: center;
-  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
   }
 
-  i {
-    margin-right: 5%;
-  }
-  @include desktop {
-    width: 20%;
+  .button-icon {
+    margin-right: 3%;
   }
 }
 
@@ -27,12 +25,13 @@
 
 .secondary {
   background-color: $bkg-color-transparent;
-  border: 1px $default-color;
+  border: 1px solid $default-color;
 }
 
 .ghost {
   background-color: transparent;
   border: 0;
+  font-weight: 600;
 }
 
 .disabled {
