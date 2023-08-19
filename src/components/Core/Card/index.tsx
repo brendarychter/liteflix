@@ -1,8 +1,4 @@
-export default function Card() {
-  return (
-    <div>
-      Card
-    </div>
-  );
+export const Card = (): JSX.Element => {
+  return (<></>
+  )
 }
-

@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { getFeaturedMovie, getPopularMovies } from '@/api';
-import { Movie } from '@/utils/types';
-import { Button, Loader } from '@/components/Atoms';
-import Header from '@/components/Core/Header';
+import { Movie, MovieType, LiteflixMovies } from '@/utils/types';
+import { Button, Dropdown, Loader } from '@/components/Atoms';
+import { Header, MovieList } from '@/components/Core';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [featuredMovie, setFeaturedMovie] = useState<Movie>();
-  const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<LiteflixMovies>({
+    popular: [],
+    my_list: []
+  });
+  const [movieType, setMovieType] = useState<MovieType>(MovieType.POPULAR);
 
   useEffect(() => {
     const fetchMoviesData = async () => {
@@ -19,8 +23,11 @@ export default function Home() {
         setLoading(false);
       }
       try {
-        const movies = await getPopularMovies();
-        setPopularMovies(movies);
+        const popular = await getPopularMovies();
+        setMovies((prevArray: LiteflixMovies) => ({
+          ...prevArray,
+          popular,
+        }));
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -29,6 +36,10 @@ export default function Home() {
 
     fetchMoviesData();
   }, []);
+
+  const handleDropdownSelect = (option: MovieType) => {
+    setMovieType(option )
+  };
 
   return (
     <>
@@ -69,8 +80,9 @@ export default function Home() {
             </section>
 
             <div className="movie-list">
-              {/* Dropdown */}
-              {popularMovies?.map(({ id, title }) => <p key={id}>{title}</p>)}
+              <span>Ver: </span>
+              <Dropdown onSelect={handleDropdownSelect} />
+              <MovieList movies={movies[movieType]} />
             </div>
           </aside>
         </main>

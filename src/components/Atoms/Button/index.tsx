@@ -8,6 +8,7 @@ export const Button = ({
   action
 }: ButtonType): JSX.Element => {
   const handleClick = () => action();
+  
   return (
     <button className={`custom-button ${variant}`} onClick={handleClick}>
       {/* TODO: icons by parameter */}

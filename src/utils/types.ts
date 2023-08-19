@@ -4,6 +4,7 @@ export interface Movie {
   imagePath: string;
   average: number;
   releaseYear: string;
+  type: string;
 }
 
 export type Dates = {
@@ -41,4 +42,14 @@ export type ButtonType = {
   variant: string;
   icon?: string;
   action: Function;
+}
+
+export type LiteflixMovies = {
+  popular: Movie[],
+  my_list: Movie[]
+}
+
+export enum MovieType {
+  POPULAR = 'popular',
+  MY_LIST = 'my_list'
 }
