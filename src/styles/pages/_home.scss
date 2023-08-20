@@ -8,19 +8,19 @@ main {
 
   h2 {
     color: $highlight-color;
-    font-size: clamp(50px, 8vw, 100px);
-    letter-spacing: clamp(6px, 8vw, 16px);
+    font-size: clamp(50px, 8vw, 120px);
+    letter-spacing: clamp(6px, 8vw, 12px);
     margin: 0;
   }
 
   .container {
     display: grid;
-    margin: 5%;
+    margin: 2% 5%;
 
     @include mobile {
       grid-auto-columns: 1fr;
       grid-template-columns: 1.12fr;
-      grid-template-rows: 1.8fr 0.87fr 0.7fr;
+      grid-template-rows: 1.5fr minmax(0, 1fr);
       gap: 7px 8px;
       grid-template-areas:
         '.'
@@ -65,10 +65,9 @@ main {
     }
 
     @include desktop {
-      grid-template-columns: 1.12fr 0.39fr;
-      grid-template-rows: 1.37fr 0.76fr;
+      grid-template-columns: 1.12fr 0.3fr;
+      grid-template-rows: 0.8fr 0.75fr;
       grid-auto-columns: 1fr;
-      gap: 7px 8px;
       grid-auto-flow: row;
       grid-template-areas:
         '. movie-list'

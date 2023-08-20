@@ -1,0 +1,49 @@
+.movie-list .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .card {
+    display: flex;
+    background-size: cover;
+    margin: 8px;
+    position: relative;
+
+    .movie-description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      .movie-title {
+        font-weight: 600;
+      }
+      .icon {
+        display: block;
+      }
+    }
+
+    .overlay {
+      display: none;
+    }
+    &:hover {
+      cursor: default;
+
+      .movie-description {
+        display: none;
+      }
+
+      .overlay {
+        display: block;
+      }
+    }
+
+    img {
+      border-radius: 3px;
+      width: 100%;
+      object-fit: cover;
+      @include desktop {
+      }
+    }
+  }
+}

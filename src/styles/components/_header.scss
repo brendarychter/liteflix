@@ -4,10 +4,11 @@ header {
   padding: 2% 4% 0;
   animation: fadeInDown 1s;
 
-  @include mobile {
-    position: sticky;
-    top: 0;
-  }
+  //TODO: only when user scrolls up
+  // @include mobile {
+  //   position: sticky;
+  //   top: 0;
+  // }
 
   .avatar {
     border-radius: 50%;
