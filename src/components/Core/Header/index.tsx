@@ -1,7 +1,9 @@
 import { Avatar, Notification, Menu } from '@/icons';
 import { Button, Logo } from '@/components/Atoms';
+import { useModal } from '@/context/ModalContext';
 
 export default function Header() {
+  const { toggleModal } = useModal();
   const icons = [
     { icon: <Menu />, className: 'icon' },
     { icon: <Notification />, className: 'icon' },
@@ -27,7 +29,7 @@ export default function Header() {
             text="Agregar película"
             icon="plus"
             variant="ghost"
-            action={() => console.log('hola')}
+            action={toggleModal}
           />
         </div>
         <div className="user-actions">

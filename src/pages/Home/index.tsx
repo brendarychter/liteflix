@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getFeaturedMovie, getPopularMovies } from '@/api';
 import { Movie, MovieType, LiteflixMovies } from '@/utils/types';
 import { Button, Dropdown, Loader } from '@/components/Atoms';
-import { Header, MovieList } from '@/components/Core';
+import { Header, MovieList, Modal } from '@/components/Core';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export default function Home() {
         const popular = await getPopularMovies();
         setMovies((prevArray: LiteflixMovies) => ({
           ...prevArray,
-          popular,
+          popular
         }));
         setLoading(false);
       } catch (error) {
@@ -38,7 +38,7 @@ export default function Home() {
   }, []);
 
   const handleDropdownSelect = (option: MovieType) => {
-    setMovieType(option )
+    setMovieType(option);
   };
 
   return (
@@ -51,7 +51,8 @@ export default function Home() {
             backgroundImage: `url(${featuredMovie?.imagePath}`
           }}
         >
-          <Header />
+          <Header/>
+
           <aside className="container">
             <section className="featured-movie">
               <h2 className="title">{featuredMovie?.title}</h2>
@@ -65,7 +66,7 @@ export default function Home() {
                     text="Reproducir"
                     icon="play"
                     variant="primary"
-                    action={() => console.log('hola')}
+                    action={() => {}}
                   />
                 </div>
                 <div className="my-list">
@@ -73,18 +74,19 @@ export default function Home() {
                     text="Mi lista"
                     icon="plus"
                     variant="secondary"
-                    action={() => console.log('hola')}
+                    action={() => {}}
                   />
                 </div>
               </div>
             </section>
 
             <div className="movie-list">
-              <span>Ver: </span>
               <Dropdown onSelect={handleDropdownSelect} />
               <MovieList movies={movies[movieType]} />
             </div>
           </aside>
+
+          <Modal/>
         </main>
       )}
     </>

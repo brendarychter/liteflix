@@ -1,18 +1,36 @@
 import { ButtonType } from '@/utils/types';
-import { Play, Plus } from '@/icons';
+import { Close, Play, Plus } from '@/icons';
 
 export const Button = ({
   text,
   icon,
   variant,
-  action
+  action,
+  disabled
 }: ButtonType): JSX.Element => {
   const handleClick = () => action();
-  
+
+  const setIcon = (icon: string) => {
+    // TODO: refactor for dinamic setting
+    switch (icon) {
+      case 'plus':
+        return <Plus />;
+      case 'close':
+        return <Close />;
+      case 'play':
+        return <Play />;
+      default:
+        break;
+    }
+  };
+
   return (
-    <button className={`custom-button ${variant}`} onClick={handleClick}>
-      {/* TODO: icons by parameter */}
-      {icon && <span className="button-icon">{icon === 'plus' ? <Plus /> : <Play />}</span>}
+    <button disabled={disabled} className={`custom-button ${variant}`} onClick={handleClick}>
+      {icon && (
+        <span className="button-icon">
+          {icon && setIcon(icon)}
+        </span>
+      )}
       {text}
     </button>
   );

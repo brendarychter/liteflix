@@ -6,8 +6,13 @@ main {
   background-repeat: no-repeat;
   opacity: 0.75;
 
-  h2 {
+  h2,
+  h3,
+  h4 {
     color: $highlight-color;
+  }
+
+  h2 {
     font-size: clamp(50px, 8vw, 120px);
     letter-spacing: clamp(6px, 8vw, 12px);
     margin: 0;
@@ -15,7 +20,7 @@ main {
 
   .container {
     display: grid;
-    margin: 2% 5%;
+    margin: 0 5%;
 
     @include mobile {
       grid-auto-columns: 1fr;

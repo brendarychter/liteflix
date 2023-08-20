@@ -38,10 +38,11 @@ export interface RawMovie {
 }
 
 export type ButtonType = {
-  text: string;
+  text?: string;
   variant: string;
   icon?: string;
   action: Function;
+  disabled?: boolean;
 }
 
 export type LiteflixMovies = {

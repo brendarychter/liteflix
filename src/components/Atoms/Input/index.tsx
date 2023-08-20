@@ -1,7 +1,10 @@
-export default function Input() {
+export const Input = ({value, onChange}: any): JSX.Element => {
   return (
-    <div>
-      Input
-    </div>
+    <input
+      type="text"
+      placeholder="Título"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    />
   );
-}
+};
