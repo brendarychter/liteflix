@@ -8,6 +8,19 @@
     transform: translateY(0);
   }
 }
+
+@keyframes dropIn {
+  20% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  30%,
+  100% {
+    opacity: 1;
+    transform: translatY(0);
+  }
+}
+
 @keyframes loading {
   0% {
     opacity: 1;

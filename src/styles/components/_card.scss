@@ -2,21 +2,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: 400;
 
   .card {
     display: flex;
     background-size: cover;
     margin: 8px;
     position: relative;
+    opacity: 0;
+    animation: dropIn 1s ease forwards;
+    overflow: hidden;
 
     .movie-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+      width: 100%;
+      height: 100%;
+
       .movie-title {
-        font-weight: 600;
+        display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        text-align: center;
+
+        @include mobile {
+          font-size: 20px;
+          bottom: 20px;
+        }
       }
       .icon {
         display: block;
@@ -24,8 +39,47 @@
     }
 
     .overlay {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: opacity 0.3s ease;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .movie-name {
+        display: flex;
+        padding-left: 10px;
+      }
+      .movie-info {
+        display: flex;
+        padding: 0 10px;
+        justify-content: space-between;
+      }
+      .play-movie svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        &:hover {
+          cursor: pointer;
+          circle {
+            fill-opacity: 1;
+            stroke: $bkg-color;
+            fill: $highlight-color;
+          }
+          path {
+            stroke: $bkg-color;
+            fill: $bkg-color;
+          }
+        }
+      }
     }
+
     &:hover {
       cursor: default;
 
@@ -34,7 +88,7 @@
       }
 
       .overlay {
-        display: block;
+        opacity: 1;
       }
     }
 
@@ -42,8 +96,6 @@
       border-radius: 3px;
       width: 100%;
       object-fit: cover;
-      @include desktop {
-      }
     }
   }
 }
