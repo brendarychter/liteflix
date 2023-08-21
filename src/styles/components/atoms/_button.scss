@@ -18,6 +18,7 @@
   }
   :disabled {
     transform: 0;
+    cursor: default;
   }
 }
 
@@ -40,6 +41,7 @@
 .disabled {
   color: $bkg-color;
   background-color: grey;
+  border: 0;
 }
 
 .success {

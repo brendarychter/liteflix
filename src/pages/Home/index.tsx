@@ -3,14 +3,23 @@ import { getFeaturedMovie, getPopularMovies } from '@/api';
 import { Movie, MovieType, LiteflixMovies } from '@/utils/types';
 import { Button, Dropdown, Loader } from '@/components/Atoms';
 import { Header, MovieList, Modal } from '@/components/Core';
+import { useLocalStorage } from '@/context/LocalStorageContext';
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [featuredMovie, setFeaturedMovie] = useState<Movie>();
+  const {storedData} = useLocalStorage();
+
+  const transformStoredData = () =>{
+    return storedData && storedData.length > 0 && storedData.reverse().slice(0,4)
+  }
+
   const [movies, setMovies] = useState<LiteflixMovies>({
     popular: [],
-    my_list: []
+    my_list: transformStoredData(storedData)
   });
+  
   const [movieType, setMovieType] = useState<MovieType>(MovieType.POPULAR);
 
   useEffect(() => {
@@ -33,13 +42,19 @@ export default function Home() {
         setLoading(false);
       }
     };
-
     fetchMoviesData();
   }, []);
 
   const handleDropdownSelect = (option: MovieType) => {
     setMovieType(option);
   };
+
+  useEffect(()=>{
+    setMovies((prevArray: LiteflixMovies) => ({
+      ...prevArray,
+      my_list: transformStoredData(storedData)
+    }));
+  }, [storedData])
 
   return (
     <>
@@ -51,7 +66,7 @@ export default function Home() {
             backgroundImage: `url(${featuredMovie?.imagePath}`
           }}
         >
-          <Header/>
+          <Header />
 
           <aside className="container">
             <section className="featured-movie">
@@ -86,7 +101,7 @@ export default function Home() {
             </div>
           </aside>
 
-          <Modal/>
+          <Modal />
         </main>
       )}
     </>

@@ -16,13 +16,15 @@ export const Card = ({
           </span>
           <span>{title}</span>
         </div>
-        <div className="movie-info">
-          <span className="icon star-movie">
-            <Star />
-            <span>{average}</span>
-          </span>
-          <span>{releaseYear}</span>
-        </div>
+        {average && (
+          <div className="movie-info">
+            <span className="icon star-movie">
+              <Star />
+              <span>{average}</span>
+            </span>
+            <span>{releaseYear}</span>
+          </div>
+        )}
       </div>
       <img className="path" alt={title} src={imagePath} loading="lazy" />
       <div className="movie-description">

@@ -3,7 +3,7 @@ import { Button, Logo } from '@/components/Atoms';
 import { useModal } from '@/context/ModalContext';
 
 export default function Header() {
-  const { toggleModal } = useModal();
+  const { toggleModal, isModalOpen } = useModal();
   const icons = [
     { icon: <Menu />, className: 'icon' },
     { icon: <Notification />, className: 'icon' },
@@ -13,9 +13,15 @@ export default function Header() {
   return (
     <header>
       <div className="mobile-header">
-        <span className="icon">
-          <Menu className="menu" />
-        </span>
+        {isModalOpen ? (
+          <span className="icon">
+            <Button variant="ghost" icon="close" action={toggleModal} />
+          </span>
+        ) : (
+          <span className="icon">
+            <Menu className="menu" />
+          </span>
+        )}
         <Logo />
         <span className="icon">
           <Avatar className="avatar" />

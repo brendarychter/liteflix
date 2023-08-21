@@ -12,7 +12,11 @@
     opacity: 0;
     animation: dropIn 1s ease forwards;
     overflow: hidden;
+    height: 20vh;
 
+    @include desktop {
+      height: 15vh;
+    }
     .movie-description {
       display: flex;
       flex-direction: column;

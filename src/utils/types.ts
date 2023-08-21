@@ -47,7 +47,7 @@ export type ButtonType = {
 
 export type LiteflixMovies = {
   popular: Movie[],
-  my_list: Movie[]
+  my_list: Movie[] | []
 }
 
 export enum MovieType {

@@ -5,14 +5,22 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
   const dropRef = useRef(null);
   const [isDraggingOver, setIsDraggingOver] = useState(false);
 
-  const handleDragEnter = (e: any) => {
+  const handleDragEnter = (e: Event) => {
     e.preventDefault();
     setIsDraggingOver(true);
   };
 
-  const handleDragLeave = (e: any) => {
+  const handleDragLeave = (e: Event) => {
     e.preventDefault();
     setIsDraggingOver(false);
+  };
+
+  const convertToBase64 = (file: any) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      onFileUpload(file.name, event.target.result);
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleDrop = (e: any) => {
@@ -21,13 +29,12 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
 
     const file = e.dataTransfer.files[0];
     if (file) {
-      onFileUpload(file);
+      convertToBase64(file);
     }
   };
 
   const handleFileInputChange = (e: any) => {
     const file = e.target.files[0];
-    console.log(file);
     if (file) {
       onFileUpload(file);
     }
@@ -35,7 +42,6 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
 
   return (
     <div className={`file-upload ${isDraggingOver ? 'dragging-over' : ''}`}>
-      
       <div
         className="drop-area"
         ref={dropRef}
@@ -54,7 +60,7 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
         type="file"
         accept=".jpg, .jpeg, .png"
         onChange={handleFileInputChange}
-        style={{display: 'none'}}
+        style={{visibility: 'hidden'}}
       />
     </div>
   );

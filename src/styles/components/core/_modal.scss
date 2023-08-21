@@ -66,4 +66,20 @@
     border-bottom: 2px solid #fff;
     width: 50%;
   }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div {
+      height: 5vh;
+      margin: 10px;
+    }
+    div:nth-child(1) {
+      font-weight: bold;
+    }
+    button {
+      width: 50%;
+    }
+  }
 }
