@@ -15,7 +15,7 @@ export const Dropdown = ({ onSelect }: any) => {
     <div className="dropdown-container">
       <div
         className="dropdown-buttons"
-        onClick={(e: any) => setIsActive(!isActive)}
+        onClick={() => setIsActive(!isActive)}
       >
         <span>ver: </span>
         {selectedOption} <Arrow />
@@ -27,7 +27,7 @@ export const Dropdown = ({ onSelect }: any) => {
             {options.map((option, i) => (
               <div
                 className="dropdown-item"
-                onClick={(e: any) => {
+                onClick={() => {
                   setSelectedOption(option.text)
                   onSelect(option.value);
                   setIsActive(false);
