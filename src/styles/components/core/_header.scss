@@ -46,6 +46,8 @@ header {
 
     .user-actions {
       justify-content: right;
+      align-items: center;
+      z-index: 100;
     }
 
     @include mobile {

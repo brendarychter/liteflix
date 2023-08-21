@@ -2,20 +2,20 @@ import { createContext, useContext, useState } from 'react';
 
 const NavbarContext = createContext<any>(null);
 
-export const NavBarProvider = ({ children }: any) => {
-  const [isNavBarOpen, setNavBarOpen] = useState(false);
+export const NavbarProvider = ({ children }: any) => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
-  const toggleNavBar = () => {
-    setNavBarOpen(!isNavBarOpen);
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
   };
 
   return (
-    <NavbarContext.Provider value={{ isNavBarOpen, toggleNavBar }}>
+    <NavbarContext.Provider value={{ isNavbarOpen, toggleNavbar }}>
       {children}
     </NavbarContext.Provider>
   );
 };
 
-export const useNavBar = () => {
+export const useNavbarContext = () => {
   return useContext(NavbarContext);
 };

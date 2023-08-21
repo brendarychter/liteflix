@@ -1,25 +1,31 @@
 import { Avatar, Notification, Menu } from '@/icons';
 import { Button, Logo } from '@/components/Atoms';
 import { useModal } from '@/context/ModalContext';
+import { useNavbarContext } from '@/context/NavbarContext';
 
 export default function Header() {
   const { toggleModal, isModalOpen } = useModal();
+  const { toggleNavbar, isNavbarOpen } = useNavbarContext();
   const icons = [
-    { icon: <Menu />, className: 'icon' },
     { icon: <Notification />, className: 'icon' },
     { icon: <Avatar className="avatar" />, className: 'icon' }
   ];
 
+  const reset = () => {
+    isModalOpen && toggleModal();
+    isNavbarOpen && toggleNavbar();
+  };
+
   return (
     <header>
       <div className="mobile-header">
-        {isModalOpen ? (
+        {isModalOpen || isNavbarOpen ? (
           <span className="icon">
-            <Button variant="ghost" icon="close" action={toggleModal} />
+            <Button variant="ghost" icon="close" action={reset} />
           </span>
         ) : (
           <span className="icon">
-            <Menu className="menu" />
+            <Menu className="menu" onClick={toggleNavbar} />
           </span>
         )}
         <Logo />
@@ -39,6 +45,15 @@ export default function Header() {
           />
         </div>
         <div className="user-actions">
+          {isNavbarOpen ? (
+            <span className="icon">
+              <Button variant="ghost" icon="close" action={reset} />
+            </span>
+          ) : (
+            <span className="icon menu">
+              <Menu onClick={toggleNavbar} />
+            </span>
+          )}
           {icons.map((item, index) => (
             <span key={index} className={item.className}>
               {item.icon}

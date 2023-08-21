@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { getFeaturedMovie, getPopularMovies } from '@/api';
 import { Movie, MovieType, LiteflixMovies } from '@/utils/types';
 import { Button, Dropdown, Loader } from '@/components/Atoms';
-import { Header, MovieList, Modal } from '@/components/Core';
+import { Header, MovieList, Modal, Navbar } from '@/components/Core';
 import { useLocalStorage } from '@/context/LocalStorageContext';
-
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -100,6 +99,7 @@ export default function Home() {
             </div>
           </aside>
 
+          <Navbar/>
           <Modal />
         </main>
       )}

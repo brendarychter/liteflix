@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { ModalProvider } from '@/context/ModalContext';
 import { LocalStorageProvider } from '@/context/LocalStorageContext';
-import { NavBarProvider } from '@/context/NavBarContext';
+import { NavbarProvider } from '@/context/NavbarContext';
 import './styles/main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -12,9 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <LocalStorageProvider>
         <ModalProvider>
-          <NavBarProvider>
+          <NavbarProvider>
             <App />
-          </NavBarProvider>
+          </NavbarProvider>
         </ModalProvider>
       </LocalStorageProvider>
     </BrowserRouter>
