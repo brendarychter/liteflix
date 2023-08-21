@@ -12,12 +12,19 @@ main {
     color: $highlight-color;
   }
 
+  h3 {
+    animation: slideIn 0.5s ease-in-out;
+  }
+
   h2 {
     font-size: clamp(50px, 8vw, 120px);
     letter-spacing: clamp(6px, 8vw, 12px);
     margin: 0;
+    animation: slideIn 1s ease-in-out;
   }
-
+  .keypad {
+    animation: slideIn 1.5s ease-in-out;
+  }
   .container {
     display: grid;
     margin: 0 5%;

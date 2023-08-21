@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useModal } from '@/context/ModalContext';
 import { Button, Input, InputFile } from '@/components/Atoms';
 import { useLocalStorage } from '@/context/LocalStorageContext';

@@ -5,19 +5,19 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
   const dropRef = useRef(null);
   const [isDraggingOver, setIsDraggingOver] = useState(false);
 
-  const handleDragEnter = (e: Event) => {
+  const handleDragEnter = (e: any) => {
     e.preventDefault();
     setIsDraggingOver(true);
   };
 
-  const handleDragLeave = (e: Event) => {
+  const handleDragLeave = (e: any) => {
     e.preventDefault();
     setIsDraggingOver(false);
   };
 
   const convertToBase64 = (file: any) => {
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = (event: any) => {
       onFileUpload(file.name, event.target.result);
     };
     reader.readAsDataURL(file);

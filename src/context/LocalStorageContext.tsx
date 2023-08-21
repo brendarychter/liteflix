@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const LocalStorageContext = createContext();
+const LocalStorageContext = createContext<any>(null);
 
-export const LocalStorageProvider = ({ children }) => {
+export const LocalStorageProvider = ({ children }: any) => {
   const [storedData, setStoredData] = useState(() => {
     const data = localStorage.getItem('my_list');
     return data ? JSON.parse(data) : [];
@@ -12,9 +12,8 @@ export const LocalStorageProvider = ({ children }) => {
     localStorage.setItem('my_list', JSON.stringify(storedData));
   }, [storedData]);
 
-  const addItem = (item) => {
-    setStoredData((prevData) => [...prevData, item]);
-    // localStorage.setItem('my_list', JSON.stringify(storedData));
+  const addItem = (item: any) => {
+    setStoredData((prevData: any) => [...prevData, item]);
   };
 
   return (

@@ -12,12 +12,12 @@ export default function Home() {
   const {storedData} = useLocalStorage();
 
   const transformStoredData = () =>{
-    return storedData && storedData.length > 0 && storedData.reverse().slice(0,4)
+    return (storedData && storedData.length > 0 ) && storedData.reverse().slice(0,4)
   }
 
   const [movies, setMovies] = useState<LiteflixMovies>({
     popular: [],
-    my_list: transformStoredData(storedData)
+    my_list: transformStoredData()
   });
   
   const [movieType, setMovieType] = useState<MovieType>(MovieType.POPULAR);
@@ -52,7 +52,7 @@ export default function Home() {
   useEffect(()=>{
     setMovies((prevArray: LiteflixMovies) => ({
       ...prevArray,
-      my_list: transformStoredData(storedData)
+      my_list: transformStoredData()
     }));
   }, [storedData])
 
