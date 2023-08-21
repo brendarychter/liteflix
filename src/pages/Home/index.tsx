@@ -67,7 +67,6 @@ export default function Home() {
           }}
         >
           <Header />
-
           <aside className="container">
             <section className="featured-movie">
               <h2 className="title">{featuredMovie?.title}</h2>

@@ -36,33 +36,37 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
   const handleFileInputChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
-      onFileUpload(file);
+      convertToBase64(file);
     }
   };
-
   return (
-    <div className={`file-upload ${isDraggingOver ? 'dragging-over' : ''}`}>
-      <div
-        className="drop-area"
-        ref={dropRef}
-        onDragOver={(e) => e.preventDefault()}
-        onDragEnter={handleDragEnter}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-      >
-        <File />
-        <p>
-          <span>Agregá un archivo </span>
-          <span className="drag-and-drop">O agregalo y soltalo aquí</span>
-        </p>
+    <>
+      <div className={`file-upload ${isDraggingOver ? 'dragging-over' : ''}`}>
+        <div
+          className="drop-area"
+          ref={dropRef}
+          onDragOver={(e) => e.preventDefault()}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          <div className="file-container">
+            <label className="file-label">
+              <File />
+              <span>
+                <span>Agregá un archivo </span>
+                <span className="drag-and-drop">O agregalo y soltalo aquí</span>
+              </span>
+              <input
+                type="file"
+                accept=".jpg, .jpeg, .png, .svg"
+                onChange={handleFileInputChange}
+              />
+            </label>
+          </div>
+        </div>
       </div>
-      <input
-        type="file"
-        accept=".jpg, .jpeg, .png"
-        onChange={handleFileInputChange}
-        style={{visibility: 'hidden'}}
-      />
-    </div>
+    </>
   );
 };
 
