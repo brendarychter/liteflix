@@ -1,7 +1,7 @@
 import { Avatar, Notification, Menu } from '@/icons';
 import { Button, Logo } from '@/components/Atoms';
 import { useModal } from '@/context/ModalContext';
-import { useNavbarContext } from '@/context/NavbarContext';
+import { useNavbarContext } from '../../../context/NavbarContext';
 
 export default function Header() {
   const { toggleModal, isModalOpen } = useModal();

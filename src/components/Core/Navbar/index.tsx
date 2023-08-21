@@ -1,4 +1,5 @@
-import { useNavbarContext } from '@/context/NavbarContext';
+import { useNavbarContext } from '../../../context/NavbarContext';
+
 import { Button } from '@/components/Atoms';
 import { useModal } from '@/context/ModalContext';
 
@@ -12,7 +13,7 @@ const Navbar = () => {
       toggleNavbar();
     }
   };
-  
+
   return (
     <nav className={`navbar ${isNavbarOpen ? 'open' : ''}`}>
       <ul>

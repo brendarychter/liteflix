@@ -1,6 +1,6 @@
 # Liteflix
 
-Come see the latest best rated movies [here](https://memory-game-psi-topaz.vercel.app/) in the Liteflix app
+Come see the latest best rated movies [here](https://liteflix-sage.vercel.app/) in the Liteflix app
 
 ## Tech Stack
 
