@@ -44,7 +44,6 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
     };
 
     reader.onloadend = () => {
-      console.log('error');
     };
 
     reader.onerror = () => {
@@ -71,8 +70,7 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
     }
   };
 
-  const selectFile = (event: any) => {
-    event.persist();
+  const selectFile = () => {
     dropRef.current?.click();
   };
 
