@@ -41,3 +41,23 @@
     height: 100%;
   }
 }
+
+.progress-status {
+  .message-loading {
+    text-align: left;
+  }
+  .status-action {
+    text-align: right;
+  }
+  .progress-bar {
+    display: flex;
+    height: 5px;
+    margin: 10px 0;
+    background-color: grey;
+    .progress-fill {
+      display: flex;
+      height: 8px;
+      background-color: $highlight-color;
+    }
+  }
+}

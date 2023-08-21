@@ -98,7 +98,6 @@ export default function Home() {
               <MovieList movies={movies[movieType]} />
             </div>
           </aside>
-
           <Navbar/>
           <Modal />
         </main>

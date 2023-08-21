@@ -54,3 +54,15 @@ export enum MovieType {
   POPULAR = 'popular',
   MY_LIST = 'my_list'
 }
+
+export enum FileInfo {
+  LOADING =  'Cargando',
+  LOADED = 'Cargado',
+  ERROR = '¡Error! No se pudo cargar la película'
+}
+
+export enum FileStatusAction {
+  READY = '¡Listo!',
+  RETRY = 'Reintentar',
+  CANCEL = 'Cancelar'
+}
