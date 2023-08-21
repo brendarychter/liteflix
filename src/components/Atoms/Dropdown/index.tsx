@@ -1,46 +1,53 @@
 import { useState } from 'react';
 import { MovieType } from '@/utils/types';
-// import { Check } from '@/icons/';
+import { Arrow, Check } from '@/icons';
 
-export const Dropdown = ({ onSelect }: any): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState<MovieType>(
-    MovieType.POPULAR
-  );
+export const Dropdown = ({ onSelect }: any) => {
+  const [isActive, setIsActive] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<string>('Populares');
+  const options = [
+    { isOn: 0, value: MovieType.POPULAR, text: 'Populares' },
+    { isOn: 1, value: MovieType.MY_LIST, text: 'Mis películas' }
+  ];
+  const [checked, setChecked] = useState(0);
 
-  const handleOptionChange = (option: MovieType) => {
-    setSelectedOption(option);
-    onSelect(option);
-  };
-  // const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-  // const toggleDropdown = () => {
-  //   setDropdownOpen(!isDropdownOpen);
-  // };
   return (
-    <>
-    {/* <div className="aaa">
-      <div className={`dropdown ${isDropdownOpen ? 'open' : ''}`}>
-        <button className="dropdown-toggle" onClick={toggleDropdown}>
-          Toggle Dropdown
-        </button>
-        <ul className="dropdown-menu">
-          <li value={MovieType.POPULAR}>Populares</li>
-          <li value={MovieType.MY_LIST}>Mis Películas</li>
-        </ul>
-      </div>
-      </div> */}
-
-    
-    <div className="dropdown">
-      <span>Ver: </span>
-      <select
-        value={selectedOption}
-        onChange={(e) => handleOptionChange(e.target.value as MovieType)}
+    <div className="dropdown-container">
+      <div
+        className="dropdown-buttons"
+        onClick={(e: any) => setIsActive(!isActive)}
       >
-        <option value={MovieType.POPULAR}>Populares</option>
-        <option value={MovieType.MY_LIST}>Mis Películas</option>
-      </select>
+        <span>ver: </span>
+        {selectedOption} <Arrow />
+      </div>
+      {isActive && (
+        <>
+          <div className="arrow" />
+          <div className="content">
+            {options.map((option, i) => (
+              <div
+                className="dropdown-item"
+                onClick={(e: any) => {
+                  setSelectedOption(option.text)
+                  onSelect(option.value);
+                  setIsActive(false);
+                  setChecked(i);
+                }}
+                key={option.isOn}
+              >
+                {option.text}
+                {checked === option.isOn ? (
+                  <p>
+                    <Check />
+                  </p>
+                ) : (
+                  ''
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
-    </>
   );
 };

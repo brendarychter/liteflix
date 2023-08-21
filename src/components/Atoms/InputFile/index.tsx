@@ -3,7 +3,7 @@ import { File } from '@/icons';
 import { FileInfo, FileStatusAction } from '@/utils/types';
 
 export const InputFile = ({ onFileUpload }: any): JSX.Element => {
-  const dropRef = useRef(null);
+  const dropRef = useRef<HTMLInputElement>(null)
   const [isDraggingOver, setIsDraggingOver] = useState(false);
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
@@ -71,6 +71,11 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
     }
   };
 
+  const selectFile = (event: any) => {
+    event.persist();
+    dropRef.current?.click();
+  };
+
   return (
     <>
       {loading ? (
@@ -89,10 +94,12 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
           </div>
         </div>
       ) : (
-        <div className={`file-upload ${isDraggingOver ? 'dragging-over' : ''}`}>
+        <div
+          onClick={selectFile}
+          className={`file-upload ${isDraggingOver ? 'dragging-over' : ''}`}
+        >
           <div
             className="drop-area"
-            ref={dropRef}
             onDragOver={(e) => e.preventDefault()}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
@@ -111,6 +118,7 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
                   type="file"
                   accept=".jpg, .jpeg, .png, .svg"
                   onChange={handleFileInputChange}
+                  ref={dropRef}
                 />
               </label>
             </div>

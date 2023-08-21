@@ -1,61 +1,67 @@
-.dropdown {
+.dropdown-container {
+  width: 100%;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
   display: flex;
-  justify-content: center;
-  margin: 5%;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  @include desktop {
+    position: absolute;
+  }
+
+  .dropdown-buttons {
+    background-color: transparent;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 200px;
+    cursor: pointer;
+    @include mobile {
+      background-color: $bkg-color;
+    }
+  }
+  .arrow {
+    background-color: $bkg-color;
+    display: none;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    margin-top: -12px;
+    top: 16px;
+    left: 80px;
+    transform: 'rotate(45deg)';
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    height: 112px;
+    background-color: $bkg-color;
+    left: 0;
+    z-index: 50;
+    margin-bottom: -112px;
+  }
+
+  .dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  @include mobile {
+    margin: 50px 0;
+  }
 }
-// .app {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-// }
-
-// .dropdown {
-//   position: relative;
-//   display: inline-block;
-// }
-
-// .dropdown-toggle {
-//   padding: 10px 20px;
-//   background-color: #007bff;
-//   color: white;
-//   border: none;
-//   cursor: pointer;
-// }
-
-// .dropdown-menu {
-//   display: none;
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   background-color: black;
-//   list-style: none;
-//   padding: 0;
-//   margin: 0;
-//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-// }
-
-// .dropdown.open .dropdown-menu {
-//   display: block;
-// }
-
-// .dropdown-menu li {
-//   padding: 10px 20px;
-//   cursor: pointer;
-// }
-
-// .dropdown-menu li:hover {
-//   background-color: black;
-// }
-
-// /* Agregar el triángulo al menú desplegable */
-// .dropdown.open .dropdown-toggle:before {
-//   content: '';
-//   position: absolute;
-//   top: -10px; /* Ajusta esto según tu diseño */
-//   left: 50%;
-//   transform: translateX(-50%);
-//   border-width: 0 10px 10px;
-//   border-style: solid;
-//   border-color: transparent transparent black transparent;
-// }

@@ -135,5 +135,13 @@ main {
 
   .movie-list {
     grid-area: movie-list;
+    @include desktop {
+      position: relative;
+    }
+    .container {
+      @include desktop {
+        margin-top: 30px;
+      }
+    }
   }
 }

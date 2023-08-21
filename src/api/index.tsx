@@ -1,4 +1,4 @@
-import { Movie, MovieType, RawMovie } from '@/utils/types';
+import { Movie, RawMovie } from '@/utils/types';
 import { BASE_PATH, API_KEY, IMAGE_PATH } from '@/utils/config';
 
 // Finds the movie which has the maximum average
@@ -24,7 +24,6 @@ const transformData = (movies: RawMovie[]) => {
       average,
       releaseYear: new Date(release_date).getFullYear().toString(),
       imagePath: `${IMAGE_PATH}/${backdrop_path}`,
-      type: MovieType.POPULAR
     };
   });
 };

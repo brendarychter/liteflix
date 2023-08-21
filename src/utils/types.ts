@@ -4,7 +4,6 @@ export interface Movie {
   imagePath: string;
   average: number;
   releaseYear: string;
-  type: string;
 }
 
 export type Dates = {
