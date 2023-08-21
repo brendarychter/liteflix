@@ -9,7 +9,7 @@ export const MovieList = ( {movies} : any): JSX.Element => {
           {movies?.map((movie: Movie) => <Card key={movie.id} {...movie} />)}
         </div>
       ) : (
-        <div className="emtpy">No hay películas para mostrar</div>
+        <div className="empty">No hay películas para mostrar</div>
       )}
     </>
   );
