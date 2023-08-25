@@ -112,13 +112,13 @@ export const InputFile = ({ onFileUpload }: any): JSX.Element => {
                     O agregalo y soltalo aquí
                   </span>
                 </span>
+              </label>
                 <input
                   type="file"
                   accept=".jpg, .jpeg, .png, .svg"
                   onChange={handleFileInputChange}
                   ref={dropRef}
                 />
-              </label>
             </div>
           </div>
         </div>
